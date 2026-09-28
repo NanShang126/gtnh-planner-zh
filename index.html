@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTNH Planner 中文汉化 · 安装与使用</title>
+<meta name="description" content="为 gtnhplanner.com 提供简体中文界面与物品名词典的油猴脚本，附 GitHub Pages 一键安装。">
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --fg: #1b1d21; --muted: #5c6470;
+    --accent: #0891b2; --accent-dark: #0e7490; --line: #e2e6eb; --warn-bg: #fff7ed; --warn-line: #fdba74;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.75; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+  header.hero { background: linear-gradient(135deg, #0f172a 0%, #164e63 100%); color: #fff; border-radius: 16px; padding: 40px 36px; margin-bottom: 32px; }
+  header.hero h1 { margin: 0 0 8px; font-size: 30px; }
+  header.hero h1 .en { color: #67e8f9; }
+  header.hero p { margin: 0; color: #cbd5e1; }
+  .badge { display: inline-block; background: rgba(103,232,249,.15); border: 1px solid rgba(103,232,249,.4); color: #a5f3fc; border-radius: 999px; padding: 2px 12px; font-size: 12px; margin-bottom: 14px; letter-spacing: 1px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 28px 30px; margin-bottom: 22px; }
+  h2 { margin: 0 0 14px; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { background: var(--accent); color: #fff; width: 26px; height: 26px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; flex: none; }
+  ol, ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 10px; font-weight: 600; margin: 4px 8px 4px 0; }
+  a.btn:hover { background: var(--accent-dark); }
+  a.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+  code { background: #eef1f4; border-radius: 6px; padding: 2px 7px; font-size: 13.5px; font-family: Consolas, "JetBrains Mono", monospace; }
+  .tip { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 10px; padding: 12px 16px; margin: 14px 0; font-size: 14px; }
+  .tip b { color: #c2410c; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+  th { background: #f1f5f9; }
+  #bk-link { display: none; }
+  .footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 34px; }
+  .kbd { border: 1px solid var(--line); border-bottom-width: 2.5px; border-radius: 5px; background: #fff; padding: 0 6px; font-size: 12.5px; font-family: Consolas, monospace; }
+  input[type=text] { padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; width: 100%; max-width: 460px; font-size: 14px; }
+  details summary { cursor: pointer; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="badge">油猴脚本 · v0.1.0 · 非官方汉化</div>
+    <h1>GTNH <span class="en">Planner</span> 中文汉化</h1>
+    <p>给 <b>gtnhplanner.com</b>（GregTech: New Horizons 工厂规划器）加上简体中文界面与物品名词典。<br>
+    原站功能、数据、存档完全不受影响 —— 本项目只是在浏览器里加了一层"中文翻译滤镜"。</p>
+  </header>
+
+  <section>
+    <h2><span class="num">1</span>它做了什么</h2>
+    <ul>
+      <li><b>界面汉化</b>：顶部导航、搜索栏、建造/求解/汇总面板、资源统计、共享方案页等全部固定文案。</li>
+      <li><b>物品 / 流体 / 机器名汉化</b>：内置约 <b>3.2 万条</b> 官方简体中文译名（源自 GTNH 官方中文本地化数据，覆盖 GregTech、Thaumcraft、Botania、AE2 等主要模组）。</li>
+      <li><b>智能拼接</b>：词典没有的复合词（如「小撮××粉」「××单元」「熔融××」）会按 GT 命名规则自动拼出中文。</li>
+      <li><b>实时翻译</b>：搜索结果、卡片、悬浮提示出现的新文字会被即时翻译，无需刷新。</li>
+      <li><b>一键开关</b>：油猴菜单里点「汉化 开/关」即可切回英文原版。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>安装（推荐：Tampermonkey）</h2>
+    <ol>
+      <li>给浏览器安装 <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey</a> 扩展（Chrome / Edge / Firefox 均可）。</li>
+      <li>点击下面的按钮安装本汉化脚本，在弹出的 Tampermonkey 页面中确认安装：</li>
+    </ol>
+    <p>
+      <a class="btn" href="./gtnh-planner-zh.user.js">⬇ 安装汉化脚本</a>
+      <a class="btn ghost" href="https://gtnhplanner.com/" target="_blank" rel="noopener">打开 GTNH Planner →</a>
+    </p>
+    <p>安装完成后打开（或刷新）gtnhplanner.com 即自动生效。</p>
+    <div class="tip"><b>无法访问 Tampermonkey？</b>也可以用下面的「书签栏方案」，无需任何扩展。</div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>免扩展方案：书签栏脚本</h2>
+    <ol>
+      <li>在下方输入框填入本页面的网址（部署后形如 <code>https://你的用户名.github.io/gtnh-planner-zh/</code>）：</li>
+    </ol>
+    <p><input type="text" id="bk-base" placeholder="https://你的用户名.github.io/gtnh-planner-zh/" oninput="mk()"></p>
+    <ol start="2">
+      <li>把下面这个链接 <b>拖到浏览器的书签栏</b>：</li>
+    </ol>
+    <p><a id="bk-link" href="#" onclick="return false;" style="display:inline-block;background:#0f172a;color:#67e8f9;padding:8px 18px;border-radius:8px;text-decoration:none;font-weight:600;">🔧 GTNH汉化</a></p>
+    <ol start="3">
+      <li>打开 gtnhplanner.com，点一下书签栏里的「🔧 GTNH汉化」即可。<b>每次打开站点后点一次</b>（脚本不持久化，优点是什么都不用装）。</li>
+    </ol>
+    <script>
+      function mk() {
+        var base = document.getElementById('bk-base').value.trim().replace(/\/+$/, '');
+        var a = document.getElementById('bk-link');
+        if (!base) { a.style.display = 'none'; return; }
+        a.style.display = 'inline-block';
+        a.href = "javascript:(function(){var s=document.createElement('script');s.src='" + base + "/gtnh-zh-inject.js?t='+Date.now();document.body.appendChild(s);})();";
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span>使用与开关</h2>
+    <ul>
+      <li><b>开关汉化</b>：点击浏览器右上角 Tampermonkey 图标 → 「GTNH Planner 中文汉化」 → 「汉化 开/关」。</li>
+      <li><b>控制台方式</b>：在站点按 <span class="kbd">F12</span> 打开控制台，输入 <code>__GTNH_ZH_TOGGLE__()</code> 回车。</li>
+      <li>你的方案存档保存在原站（本机/账号），与汉化脚本完全无关，随时可切回英文。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span>覆盖范围与已知限制</h2>
+    <table>
+      <tr><th>内容</th><th>状态</th></tr>
+      <tr><td>主界面固定文案</td><td>✅ 基本全覆盖（v3.9.2 实测）</td></tr>
+      <tr><td>GT 系物品 / 流体 / 多方块机器名</td><td>✅ 约 3.2 万条官方译名</td></tr>
+      <tr><td>跨模组物品（林业、神秘、植物魔法等）</td><td>✅ 大部分覆盖</td></tr>
+      <tr><td>社区方案的标题 / 描述 / 用户名</td><td>⚠️ 保持原文（用户内容，不做翻译）</td></tr>
+      <tr><td>个别新增内容、深层提示语</td><td>⚠️ 未命中的词保持英文，不影响使用</td></tr>
+    </table>
+    <div class="tip"><b>说明</b>：物品译名取自 GTNH 官方中文数据（游戏版本 2.8.4 词条库），原站数据为 2.9，个别新旧物品的译名可能缺失或略有出入。</div>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span>更新与反馈</h2>
+    <p>脚本内置词典为静态数据。原站更新后如果出现新的未翻译文案，属正常现象，不影响功能。想补充词条可编辑仓库里的 <code>src/ui_dict.js</code>，重新运行 <code>node src/build.js</code> 即可。</p>
+  </section>
+
+  <p class="footer">GTNH Planner 中文汉化 · MIT License · 词典来源：GTNH 官方中文本地化（GT5-Unofficial 等 zh_CN 语言文件）<br>
+  本项目为社区汉化工具，与 GTNH Planner 原作者及 GTNH 团队无隶属关系。</p>
+</div>
+</body>
+</html>
