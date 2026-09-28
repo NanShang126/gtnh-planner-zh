@@ -20,6 +20,13 @@
 - GT 命名规则智能拼接：`Tiny Pile of X` → 小撮X、`X Cell` → X单元、`Molten X` → 熔融X 等
 - MutationObserver 实时翻译动态内容；油猴菜单一键开/关
 
+## 安装链接（直装，无需访问页面）
+
+- **推荐（jsDelivr CDN，国内可达）**：
+  `https://cdn.jsdelivr.net/gh/NanShang126/gtnh-planner-zh@main/gtnh-planner-zh.user.js`
+- GitHub Pages 安装页：`https://nanshang126.github.io/gtnh-planner-zh/`
+  （注意：该账号的 Pages 绑定了自定义域 `blog.nanshang.work`，该域名当前无法解析，所有 `nanshang126.github.io/*` 会被 301 跳转到它。若需 Pages 恢复正常，请到 `NanShang126.github.io` 仓库的 Settings → Pages 移除该自定义域。）
+
 ## 部署到你的 GitHub Pages（3 步）
 
 1. 在 GitHub 新建仓库（如 `gtnh-planner-zh`），把本目录全部文件推上去：
